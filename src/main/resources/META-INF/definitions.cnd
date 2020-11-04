@@ -22,8 +22,6 @@
 
 [mgnt:imageGallery] > jnt:content, mix:title, mgmix:mediagalleries, jmix:list, mgmix:galleryType
  - bannerText (string, richtext) internationalized
- - images (weakreference, picker[type='image']) multiple
-
 
 //*** CONTENT LINKER //
 [mgmix:galleryType] mixin

@@ -23,6 +23,7 @@
 <template:addResources type="javascript" resources="jquery.fancybox.min.js"/>
 <template:addResources type="javascript" resources="imageGallery.js"/>
 
+<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <jcr:nodeProperty node="${currentNode}" name="bannerText" var="bannerText"/>
 <jcr:nodeProperty node="${currentNode}" name="images" var="images"/>
 
@@ -30,8 +31,8 @@
 <!-- Page Content -->
 <div class="container page-top">
     <p>
-    <h2 class="text-primary text-center mb-5">${bannerText}</h2></p>
-
+    <h2 class="text-primary text-center mb-5">${title}</h2></p>
+    <p>${bannerText}</p>
     <div class="row">
         <c:choose>
             <c:when test="${galleryType eq 'imgDirectory'}">
