@@ -7,24 +7,6 @@
                        j:title="Media Galleries"
                        jcr:mixinTypes="jmix:hasExternalProviderExtension"
                        jcr:primaryType="jnt:module">
-         <sources jcr:mixinTypes="jmix:hasExternalProviderExtension"
-                  jcr:primaryType="jnt:moduleVersionFolder"
-                  j:staticMountPointProviderKey="module-media-galleries-1.0-SNAPSHOT">
-            <pom.xml jcr:primaryType="jnt:xmlFile"/>
-            <src jcr:mixinTypes="jmix:hasExternalProviderExtension"
-                 jcr:primaryType="jnt:folder">
-               <main jcr:mixinTypes="jmix:hasExternalProviderExtension"
-                     jcr:primaryType="jnt:folder">
-                  <resources jcr:mixinTypes="jmix:hasExternalProviderExtension"
-                             jcr:primaryType="jnt:folder">
-                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension"
-                               jcr:primaryType="jnt:metaInfFolder">
-                        <definitions.cnd jcr:primaryType="jnt:definitionFile"/>
-                     </META-INF>
-                  </resources>
-               </main>
-            </src>
-         </sources>
          <portlets jcr:primaryType="jnt:portletFolder"/>
          <files jcr:primaryType="jnt:folder"/>
          <contents jcr:primaryType="jnt:contentFolder"/>
