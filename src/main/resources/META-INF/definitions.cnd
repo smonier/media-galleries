@@ -1,0 +1,25 @@
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<mgnt = 'http://www.jahia.org/mg/nt/1.0'>
+<mgmix = 'http://www.jahia.org/mg/mix/1.0'>
+
+[mgmix:mediagalleries] > jmix:droppableContent, jmix:visibleInContentTree, jmix:editorialContent mixin
+
+[mgnt:internalVideo] > jnt:content, mix:title
+ - video (weakreference, picker[type='file']) i18n
+ - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
+
+[mgnt:externalVideo] > jnt:content, mix:title
+ - videoService(string, choicelist[resourceBundle]) = 'youtube' mandatory < youtube, vimeo
+ - videoId (string) i18n
+ - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
+
+[mgnt:videoGallery] > jnt:content, mix:title, mgmix:mediagalleries, jmix:list
+ - bannerText (string, richtext) internationalized
+ - itemWidth (long) = 250 indexed=no mandatory
+ + * (mgnt:internalVideo)
+ + * (mgnt:externalVideo)
+
+[mgnt:imageGallery] > jnt:content, mix:title, mgmix:mediagalleries, jmix:list
+ - bannerText (string, richtext) internationalized
+ - images (weakreference, picker[type='image']) multiple
