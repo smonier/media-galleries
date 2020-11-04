@@ -66,6 +66,7 @@
         <developerConnection>scm:git@github.com:smonier/mediaGalleries.git</developerConnection>
     </scm>
     <properties>
+        <export-package>org.jahia.modules.osgi</export-package>
         <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
     </properties>
     <repositories>

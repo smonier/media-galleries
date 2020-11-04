@@ -26,19 +26,39 @@
 <jcr:nodeProperty node="${currentNode}" name="bannerText" var="bannerText"/>
 <jcr:nodeProperty node="${currentNode}" name="images" var="images"/>
 
-
+<c:set var="galleryType" value="${currentNode.properties.imgGalleryType.string}"/>
 <!-- Page Content -->
 <div class="container page-top">
-    <p> <h2 class="text-primary text-center mb-5">${bannerText}</h2></p>
+    <p>
+    <h2 class="text-primary text-center mb-5">${bannerText}</h2></p>
 
     <div class="row">
+        <c:choose>
+            <c:when test="${galleryType eq 'imgDirectory'}">
+                <c:set var="targetFolderPath" value="${currentNode.properties.folder.node.path}"/>
+                <jcr:node var="targetNode" path="${targetFolderPath}"/>
 
-        <c:forEach items="${images}" var="image" varStatus="status">
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a href="${image.node.url}" class="fancybox" rel="ligthbox">
-                    <img src="${image.node.url}" class="zoom img-fluid " alt="${image.node.name}">
-                </a>
-            </div>
-        </c:forEach>
+                <c:forEach items="${targetNode.nodes}" var="subchild">
+
+                  <c:if test="${jcr:isNodeType(subchild, 'jmix:image')}">
+                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                            <a href="${subchild.url}" class="fancybox" rel="ligthbox">
+                                <img src="${subchild.url}" class="zoom img-fluid " alt="${subchild.name}">
+                            </a>
+                        </div>
+                    </c:if>
+                </c:forEach>
+            </c:when>
+            <c:when test="${galleryType eq 'imgFile'}">
+                <jcr:nodeProperty node="${currentNode}" name="imagesList" var="images"/>
+                <c:forEach items="${images}" var="image" varStatus="status">
+                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                        <a href="${image.node.url}" class="fancybox" rel="ligthbox">
+                            <img src="${image.node.url}" class="zoom img-fluid " alt="${image.node.name}">
+                        </a>
+                    </div>
+                </c:forEach>
+            </c:when>
+        </c:choose>
     </div>
 </div>

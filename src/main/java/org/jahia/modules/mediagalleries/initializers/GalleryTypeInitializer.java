@@ -43,12 +43,12 @@ public class GalleryTypeInitializer extends AbstractChoiceListRenderer implement
         //directory
         myPropertiesMap = new HashMap<String, Object>();
         myPropertiesMap.put("addMixin","mgmix:directoryLink");
-        myChoiceList.add(new ChoiceListValue("folder",myPropertiesMap,new ValueImpl("folder", PropertyType.STRING, false)));
+        myChoiceList.add(new ChoiceListValue("imgDirectory",myPropertiesMap,new ValueImpl("imgDirectory", PropertyType.STRING, false)));
 
         //multiple Images
         myPropertiesMap = new HashMap<String, Object>();
         myPropertiesMap.put("addMixin","mgmix:imagesLink");
-        myChoiceList.add(new ChoiceListValue("images",myPropertiesMap,new ValueImpl("images", PropertyType.STRING, false)));
+        myChoiceList.add(new ChoiceListValue("imgFile",myPropertiesMap,new ValueImpl("imgFile", PropertyType.STRING, false)));
 
 
         //Return the list

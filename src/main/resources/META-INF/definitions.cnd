@@ -20,6 +20,20 @@
  + * (mgnt:internalVideo)
  + * (mgnt:externalVideo)
 
-[mgnt:imageGallery] > jnt:content, mix:title, mgmix:mediagalleries, jmix:list
+[mgnt:imageGallery] > jnt:content, mix:title, mgmix:mediagalleries, jmix:list, mgmix:galleryType
  - bannerText (string, richtext) internationalized
  - images (weakreference, picker[type='image']) multiple
+
+
+//*** CONTENT LINKER //
+[mgmix:galleryType] mixin
+ - imgGalleryType (string, choicelist[mgGalleryTypeInitializer,resourceBundle]) indexed=no < 'imgDirectory', 'imgFile'
+
+[mgmix:directoryLink] > jmix:templateMixin mixin
+ extends = mgmix:galleryType
+ - folder (weakreference, picker[type='folder'])
+
+[mgmix:imagesLink] > jmix:templateMixin mixin
+ extends = mgmix:galleryType
+ - imagesList (weakreference, picker[type='image']) multiple
+// CONTENT LINKER ***//
