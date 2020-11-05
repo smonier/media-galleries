@@ -7,5 +7,7 @@ Offer a video Gallerie and Image Gallerie
 
 ![picture](./src/main/resources/images/videoGallery.png)
 
+![picture](./src/main/resources/images/videoGallery2.png)
+
 ![picture](./src/main/resources/images/imagesGallery.png)
 
