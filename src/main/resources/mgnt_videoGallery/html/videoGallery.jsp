@@ -19,6 +19,7 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <template:addResources type="css" resources="videoButton.css"/>
+<template:addResources type="css" resources="imageGallery.css"/>
 
 
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
@@ -39,7 +40,7 @@
         <!-- Grid row -->
         <div class="row">
             <c:forEach items="${videos}" var="video" varStatus="item">
-                <div class="col-lg-4 col-md-12 mb-3">
+                <div class="col-lg-4 col-md-12 mb-3 ">
                     <template:module node="${video}" editable="true"/>
                 </div>
             </c:forEach>

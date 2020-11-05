@@ -68,10 +68,12 @@
     </div>
 </div>
 <!--Modal: Name-->
-<a class="video-thumbnail">
-    <img class="img-fluid z-depth-1 rounded" src="${image.url}" itemprop="thumbnail" alt="${caption}"
+<div class="thumb">
+<a class="video-thumbnail ">
+    <img class="img-fluid thumb zoom" src="${image.url}" itemprop="thumbnail" alt="${caption}"
          style="width: ${itemWidth}px" data-toggle="modal" data-target="#${modalId}"/>
     <figcaption class="figure-caption">${caption}</figcaption>
 </a>
-
+</div>
 <!-- Grid column -->
+
