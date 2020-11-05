@@ -41,7 +41,7 @@
 
                 <c:forEach items="${targetNode.nodes}" var="subchild">
 
-                  <c:if test="${jcr:isNodeType(subchild, 'jmix:image')}">
+                    <c:if test="${jcr:isNodeType(subchild, 'jmix:image')}">
                         <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                             <a href="${subchild.url}" class="fancybox" rel="ligthbox">
                                 <img src="${subchild.url}" class="zoom img-fluid " alt="${subchild.name}">

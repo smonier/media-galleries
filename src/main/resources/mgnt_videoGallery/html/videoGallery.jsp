@@ -30,32 +30,22 @@
 
 <!--Card-->
 <div class="card text-center">
-
-
-<!--Card content-->
-<div class="card-body">
-<!--Title-->
-<h1 class="card-title text-primary">${title}</h1>
-<!--Text-->
-<p class="card-text text-secondary">${bannerText}</p>
-
-
-<!-- Grid row -->
-<div class="row">
-
-
-    <c:forEach items="${videos}" var="video" varStatus="item">
-      <div class="col-lg-4 col-md-12 mb-3">
-
-            <template:module node="${video}"  editable="true"/>
-      </div>
-    </c:forEach>
-
-
-</div>
-<!-- Grid row -->
-
-</div>
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h1 class="card-title text-primary">${title}</h1>
+        <!--Text-->
+        <p class="card-text text-secondary">${bannerText}</p>
+        <!-- Grid row -->
+        <div class="row">
+            <c:forEach items="${videos}" var="video" varStatus="item">
+                <div class="col-lg-4 col-md-12 mb-3">
+                    <template:module node="${video}" editable="true"/>
+                </div>
+            </c:forEach>
+        </div>
+        <!-- Grid row -->
+    </div>
 </div>
 <!--/.Card-->
 
@@ -65,5 +55,5 @@
     if a new child type is added restriction has to be done
     using 'nodeTypes' attribute
     --%>
-    <template:module path="*" />
+    <template:module path="*"/>
 </c:if>

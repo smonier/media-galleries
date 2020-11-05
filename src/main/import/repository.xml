@@ -17,17 +17,16 @@
                      jcr:primaryType="jnt:folder">
                   <resources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                              jcr:primaryType="jnt:folder">
-                     <mgnt_imageGallery jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                     <mgnt_imageGallery jcr:mixinTypes="jmix:hasExternalProviderExtension"
                                         jcr:primaryType="jnt:nodeTypeFolder">
-                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension"
                               jcr:primaryType="jnt:templateTypeFolder">
-                           <imageGallery.jsp jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
+                           <imageGallery.jsp jcr:primaryType="jnt:viewFile"/>
                         </html>
                      </mgnt_imageGallery>
-                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension"
                                jcr:primaryType="jnt:metaInfFolder">
-                        <definitions.cnd jcr:mixinTypes="jmix:sourceControl"
-                                         jcr:primaryType="jnt:definitionFile"/>
+                        <definitions.cnd jcr:primaryType="jnt:definitionFile"/>
                      </META-INF>
                   </resources>
                </main>
