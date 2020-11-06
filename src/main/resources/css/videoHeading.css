@@ -5,7 +5,6 @@
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
-    margin-top: 30px;
 }
 
 .video-background-holder video {
@@ -37,4 +36,30 @@
     background-color: black;
     opacity: 0.5;
     z-index: 1;
+}
+
+.video__link {
+    margin: 1em 0;
+    display: inline-block;
+    line-height: 0;
+    border-radius: 100px;
+    transition: .2s ease-in-out
+}
+
+.video__link:after {
+    content: "";
+    display: inline-block;
+    background-image: url(./img/sprite.png);
+    background-position: -88px -176px;
+    background-size: 369px 323px;
+    width: 73px;
+    height: 73px
+}
+
+.video__link:hover {
+    background: #1462a8;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation: 1.5s ease-in-out infinite videopulse;
+    animation: 1.5s ease-in-out infinite videopulse
 }

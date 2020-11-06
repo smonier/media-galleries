@@ -5,4 +5,7 @@
     <bean id="btnGalleryTypeInitializer" class="org.jahia.modules.mediagalleries.initializers.GalleryTypeInitializer">
         <property name="key" value="mgGalleryTypeInitializer" />
     </bean>
+    <bean id="btnLinkTypeInitializer" class="org.jahia.modules.mediagalleries.initializers.LinkTypeInitializer">
+        <property name="key" value="mgLinkTypeInitializer" />
+    </bean>
 </beans>

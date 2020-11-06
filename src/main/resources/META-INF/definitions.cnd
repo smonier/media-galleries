@@ -36,6 +36,19 @@
  - imagesList (weakreference, picker[type='image']) multiple
 // CONTENT LINKER ***//
 
-[mgnt:videoHeading] > jnt:content, mix:title, mgmix:mediagalleries, timix:linkTo
+[mgnt:videoHeading] > jnt:content, mix:title, mgmix:mediagalleries, mgmix:linkTo
  - video (weakreference, picker[type='file']) i18n
  - caption (string, richtext) internationalized
+
+ //*** CONTENT LINKER //
+ [mgmix:linkTo] mixin
+  - linkType (string, choicelist[mgLinkTypeInitializer,resourceBundle]) indexed=no < 'internalLink', 'externalLink', 'self'
+  - linkTarget (string, choicelist[resourceBundle]) = _blank autocreated indexed=no < '_blank', '_self', '_parent', '_top'
+ [mgmix:internalLink] > jmix:templateMixin mixin
+  extends = mgmix:linkTo
+  - internalLink (weakreference, picker[type='editoriallink']) < 'jmix:droppableContent', 'jnt:page', 'jnt:file'
+
+ [mgmix:externalLink] > jmix:templateMixin mixin
+  extends = mgmix:linkTo
+  - externalLink (string) = 'https://'
+ // CONTENT LINKER ***//

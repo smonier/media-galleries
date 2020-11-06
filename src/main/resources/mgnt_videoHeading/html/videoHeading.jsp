@@ -8,6 +8,7 @@
 <c:set var="caption" value="${currentNode.properties['caption'].string}"/>
 <c:set var="videoNode" value="${currentNode.properties.video.node}"/>
 <c:url var="videoURL" value="${videoNode.url}"/>
+<template:include view="hidden.generateLink"/>
 
 
 <div class="video-background-holder">
@@ -20,6 +21,10 @@
             <div class="w-100 text-white">
                 <h1 class="display-4">${title}</h1>
                 <p class="lead mb-0">${caption}</p>
+                <c:if test="${not empty moduleMap.linkUrl}">
+                    <a href="${moduleMap.linkUrl}" class="video__link" target="${moduleMap.linkTarget}">
+                    </a>
+                </c:if>
             </div>
         </div>
     </div>
