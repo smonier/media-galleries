@@ -24,9 +24,10 @@
                            <imageGallery.jsp jcr:primaryType="jnt:viewFile"/>
                         </html>
                      </mgnt_imageGallery>
-                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                                jcr:primaryType="jnt:metaInfFolder">
-                        <definitions.cnd jcr:primaryType="jnt:definitionFile"/>
+                        <definitions.cnd jcr:mixinTypes="jmix:sourceControl"
+                                         jcr:primaryType="jnt:definitionFile"/>
                      </META-INF>
                   </resources>
                </main>

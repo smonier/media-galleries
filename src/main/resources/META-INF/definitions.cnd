@@ -35,3 +35,7 @@
  extends = mgmix:galleryType
  - imagesList (weakreference, picker[type='image']) multiple
 // CONTENT LINKER ***//
+
+[mgnt:videoHeading] > jnt:content, mix:title, mgmix:mediagalleries, timix:linkTo
+ - video (weakreference, picker[type='file']) i18n
+ - caption (string, richtext) internationalized
