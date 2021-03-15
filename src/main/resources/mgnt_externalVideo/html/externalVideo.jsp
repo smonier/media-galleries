@@ -37,16 +37,17 @@
             <div class="modal-body mb-0 p-0">
                 <c:choose>
                     <c:when test="${fn:toLowerCase(videoSource) == 'vimeo'}">
-                        <c:set var="videoURL" value="http://player.vimeo.com/video/${videoID}"/>
+                        <c:set var="videoURL" value="https://player.vimeo.com/video/${videoID}"/>
                     </c:when>
                     <c:otherwise>
-                        <c:set var="videoURL" value="http://www.youtube.com/embed/${videoID}"/>
+                        <c:set var="videoURL" value="https://www.youtube.com/embed/${videoID}"/>
                     </c:otherwise>
                 </c:choose>
                 <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
                     <iframe class="embed-responsive-item" src="${videoURL}"
                             allowfullscreen></iframe>
                 </div>
+              
             </div>
             <!--Footer-->
             <div class="modal-footer justify-content-center">

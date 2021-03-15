@@ -10,25 +10,19 @@
          <sources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                   jcr:primaryType="jnt:moduleVersionFolder"
                   j:staticMountPointProviderKey="module-media-galleries-1.0-SNAPSHOT">
-            <pom.xml jcr:primaryType="jnt:xmlFile"/>
             <src jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                  jcr:primaryType="jnt:folder">
                <main jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                      jcr:primaryType="jnt:folder">
                   <resources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                              jcr:primaryType="jnt:folder">
-                     <mgnt_imageGallery jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                     <mgnt_videoHeading jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                                         jcr:primaryType="jnt:nodeTypeFolder">
-                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
                               jcr:primaryType="jnt:templateTypeFolder">
-                           <imageGallery.jsp jcr:primaryType="jnt:viewFile"/>
+                           <videoHeading.jsp jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:viewFile"/>
                         </html>
-                     </mgnt_imageGallery>
-                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
-                               jcr:primaryType="jnt:metaInfFolder">
-                        <definitions.cnd jcr:mixinTypes="jmix:sourceControl"
-                                         jcr:primaryType="jnt:definitionFile"/>
-                     </META-INF>
+                     </mgnt_videoHeading>
                   </resources>
                </main>
             </src>
