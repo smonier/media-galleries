@@ -30,13 +30,13 @@
 <c:set var="videos" value="${jcr:getChildrenOfType(currentNode, 'mgnt:externalVideo,mgnt:internalVideo')}"/>
 
 <!--Card-->
-<div class="card text-center">
+<div class="video text-center">
     <!--Card content-->
-    <div class="card-body">
+    <div class="video-body">
         <!--Title-->
-        <h1 class="card-title text-primary">${title}</h1>
+        <h1 class="video-title text-primary">${title}</h1>
         <!--Text-->
-        <p class="card-text text-secondary">${bannerText}</p>
+        <p class="video-text text-secondary">${bannerText}</p>
         <!-- Grid row -->
         <div class="row">
             <c:forEach items="${videos}" var="video" varStatus="item">

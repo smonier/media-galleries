@@ -10,7 +10,7 @@
  - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
 
 [mgnt:externalVideo] > jnt:content, mix:title
- - videoService(string, choicelist[resourceBundle]) = 'youtube' mandatory < youtube, vimeo
+ - videoService(string, choicelist[resourceBundle]) = 'youtube' mandatory < youtube, vimeo, wistia
  - videoId (string) i18n
  - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
 
