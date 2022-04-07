@@ -18,8 +18,10 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
+<template:addResources type="css" resources="all.min.css"/>
 <template:addResources type="css" resources="videoButton.css"/>
 <template:addResources type="css" resources="imageGallery.css"/>
+
 
 
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>

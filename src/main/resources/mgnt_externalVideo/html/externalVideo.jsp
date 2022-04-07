@@ -68,29 +68,45 @@
     <a class="video-thumbnail ">
         <c:choose>
             <c:when test="${not empty image.url}">
-                <img class="img-fluid thumb zoom" src="${image.url}" itemprop="thumbnail" alt="${caption}"
-                     style="width: ${itemWidth}px" data-toggle="modal" data-target="#${modalId}"/>
+                <img class="img-fluid thumb zoom"
+                     src="${image.url}"
+                     itemprop="thumbnail"
+                     alt="${caption}"
+                     style="width: ${itemWidth}px"
+                     data-toggle="modal"
+                     data-target="#${modalId}"/>
             </c:when>
             <c:otherwise>
                 <c:choose>
                     <c:when test="${fn:toLowerCase(videoSource) == 'vimeo'}">
-                        <img class="img-fluid thumb zoom" srcset="https://vumbnail.com/${videoID}.jpg 640w, https://vumbnail.com/${videoID}_large.jpg 640w, https://vumbnail.com/${videoID}_medium.jpg 200w, https://vumbnail.com/${videoID}_small.jpg 100w"
+                        <img class="img-fluid thumb zoom"
+                             srcset="https://vumbnail.com/${videoID}.jpg 640w, https://vumbnail.com/${videoID}_large.jpg 640w, https://vumbnail.com/${videoID}_medium.jpg 200w, https://vumbnail.com/${videoID}_small.jpg 100w"
                              sizes="(max-width: 640px) 100vw, 640px"
                              src="https://vumbnail.com/${videoID}.jpg"
                              itemprop="thumbnail" alt="${caption}"
-                             style="width: ${itemWidth}px" data-toggle="modal" data-target="#${modalId}"/>
+                             style="width: ${itemWidth}px"
+                             data-toggle="modal"
+                             data-target="#${modalId}"/>
                     </c:when>
                     <c:when test="${fn:toLowerCase(videoSource) == 'wistia'}">
-                        <img class="img-fluid thumb zoom" data-src="${videoID}" alt="video" id="wistia-thumbnail"
+                        <img class="img-fluid thumb zoom"
+                             data-src="${videoID}"
+                             id="wistia-thumbnail-${videoID}"
                              itemprop="thumbnail" alt="${caption}"
-                             style="width: ${itemWidth}px" data-toggle="modal" data-target="#${modalId}"/>>
+                             style="width: ${itemWidth}px"
+                             data-toggle="modal"
+                             data-target="#${modalId}"/>
 
                     </c:when>
                     <c:otherwise>
 
-                        <img class="img-fluid thumb zoom" src="https://img.youtube.com/vi/${videoID}/default.jpg"
-                             itemprop="thumbnail" alt="${caption}"
-                             style="width: ${itemWidth}px" data-toggle="modal" data-target="#${modalId}"/>
+                        <img class="img-fluid thumb zoom"
+                             src="https://img.youtube.com/vi/${videoID}/maxresdefault.jpg"
+                             itemprop="thumbnail"
+                             alt="${caption}"
+                             style="width: ${itemWidth}px"
+                             data-toggle="modal"
+                             data-target="#${modalId}"/>
                     </c:otherwise>
                 </c:choose>
             </c:otherwise>
@@ -104,7 +120,7 @@
 <script>
     $(document).ready(function () {
         //https://wistia.com/support/developers/oembed
-        const wistiaID = $("#wistia-thumbnail").data("src");
+        const wistiaID = $("#wistia-thumbnail-${videoID}").data("src");
         const wistiaWidth = 640;
         // iframe, async, async_popover, playlist_iframe, playlist_api, playlist_popver, and open_graph_tag
         const wistiaType = "async_popover";
@@ -118,9 +134,16 @@
 
                 thumbnail_url =
                     data.thumbnail_url + "&" + "image_resize=" + wistiaWidth;
-                $("#wistia-thumbnail").attr("src", thumbnail_url);
+                $("#wistia-thumbnail-${videoID}").attr("src", thumbnail_url);
                 $("#wistia-embed").html(data.html);
             }
         );
+    });
+
+    $(function(){
+        $('#${modalId}').on('hidden.bs.modal', function (e) {
+            $iframe = $(this).find("iframe");
+            $iframe.attr("src", $iframe.attr("src"));
+        });
     });
 </script>

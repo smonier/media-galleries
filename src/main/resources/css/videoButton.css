@@ -11,10 +11,9 @@
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     content: "\f144";
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     font-size: 60px;
-    color: #fff;
-    opacity: 0.8;
+
     text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -22,7 +21,7 @@
 .video-thumbnail:hover::before {
     color: #eee;
     content: "\f144";
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     font-size: 60px;
     color: #fff;
 }
