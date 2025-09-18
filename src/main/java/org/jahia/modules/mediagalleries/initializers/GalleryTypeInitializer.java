@@ -73,17 +73,28 @@ public class GalleryTypeInitializer extends AbstractChoiceListRenderer implement
      * {@inheritDoc}
      */
     public String getStringRendering(RenderContext context, JCRPropertyWrapper propertyWrapper) throws RepositoryException {
+        if (propertyWrapper == null) {
+            return "";
+        }
+
         final StringBuilder sb = new StringBuilder();
 
         if (propertyWrapper.isMultiple()) {
             sb.append('{');
             final Value[] values = propertyWrapper.getValues();
-            for (Value value : values) {
-                sb.append('[').append(value.getString()).append(']');
+            if (values != null) {
+                for (Value value : values) {
+                    if (value != null) {
+                        sb.append('[').append(value.getString()).append(']');
+                    }
+                }
             }
             sb.append('}');
         } else {
-            sb.append('[').append(propertyWrapper.getValue().getString()).append(']');
+            final Value value = propertyWrapper.getValue();
+            if (value != null) {
+                sb.append('[').append(value.getString()).append(']');
+            }
         }
 
         return sb.toString();
@@ -93,6 +104,9 @@ public class GalleryTypeInitializer extends AbstractChoiceListRenderer implement
      * {@inheritDoc}
      */
     public String getStringRendering(Locale locale, ExtendedPropertyDefinition propDef, Object propertyValue) throws RepositoryException {
+        if (propertyValue == null) {
+            return "[]";
+        }
         return "[" + propertyValue.toString() + "]";
     }
 }
