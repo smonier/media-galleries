@@ -22,41 +22,30 @@
 <template:addResources type="css" resources="videoButton.css"/>
 <template:addResources type="css" resources="imageGallery.css"/>
 
-
-
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="bannerText" value="${currentNode.properties['bannerText'].string}"/>
-<%--<c:set var="itemWidth" value="${currentNode.properties['itemWidth'].string}"/>--%>
-
-<%-- get the child galleryImgs --%>
 <c:set var="videos" value="${jcr:getChildrenOfType(currentNode, 'mgnt:externalVideo,mgnt:internalVideo')}"/>
 
-<!--Card-->
 <div class="video text-center">
-    <!--Card content-->
     <div class="video-body">
-        <!--Title-->
         <h1 class="video-title text-primary">${title}</h1>
-        <!--Text-->
         <p class="video-text text-secondary">${bannerText}</p>
-        <!-- Grid row -->
+
         <div class="row">
-            <c:forEach items="${videos}" var="video" varStatus="item">
-                <div class="col-lg-4 col-md-12 mb-3 ">
+            <c:forEach items="${videos}" var="video">
+                <div class="col-lg-4 col-md-12 mb-3">
                     <template:module node="${video}" editable="true"/>
                 </div>
             </c:forEach>
         </div>
-        <!-- Grid row -->
     </div>
 </div>
-<!--/.Card-->
 
 <c:if test="${renderContext.editMode}">
     <%--
-    As only one child type is defined no need to restrict
-    if a new child type is added restriction has to be done
-    using 'nodeTypes' attribute
+        As only one child type is defined no need to restrict
+        if a new child type is added restriction has to be done
+        using 'nodeTypes' attribute
     --%>
     <template:module path="*"/>
 </c:if>
