@@ -18,16 +18,15 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<c:set var="linkType" value="${currentNode.properties.linkType.string}" />
+<c:set var="linkType" value="${currentNode.properties.linkType.string}"/>
 
 <c:choose>
     <c:when test="${linkType eq 'internalLink'}">
         <c:set var="internalLinkNode" value="${currentNode.properties.internalLink.node}"/>
-        <c:choose>
-            <c:when test="${! empty internalLinkNode}">
-                <c:url var="linkUrl" value="${internalLinkNode.url}"/>
-            </c:when>
-        </c:choose>
+
+        <c:if test="${not empty internalLinkNode}">
+            <c:url var="linkUrl" value="${internalLinkNode.url}"/>
+        </c:if>
     </c:when>
     <c:when test="${linkType eq 'externalLink'}">
         <c:url var="linkUrl" value="${currentNode.properties.externalLink.string}"/>
@@ -37,5 +36,5 @@
     </c:when>
 </c:choose>
 
-<c:set target="${moduleMap}" property="linkUrl" value="${linkUrl}" />
-<c:set target="${moduleMap}" property="linkTarget" value="${currentNode.properties.linkTarget.string}" />
+<c:set target="${moduleMap}" property="linkUrl" value="${linkUrl}"/>
+<c:set target="${moduleMap}" property="linkTarget" value="${currentNode.properties.linkTarget.string}"/>

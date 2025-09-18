@@ -10,7 +10,6 @@
 <c:url var="videoURL" value="${videoNode.url}"/>
 <template:include view="hidden.generateLink"/>
 
-
 <div class="video-background-holder">
     <div class="video-background-overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
@@ -22,12 +21,9 @@
                 <h1 class="display-4 text-white">${title}</h1>
                 <p class="lead mb-0 text-white">${caption}</p>
                 <c:if test="${not empty moduleMap.linkUrl}">
-                    <a href="${moduleMap.linkUrl}" class="video__link" target="${moduleMap.linkTarget}">
-                    </a>
+                    <a href="${moduleMap.linkUrl}" class="video__link" target="${moduleMap.linkTarget}"></a>
                 </c:if>
             </div>
         </div>
     </div>
 </div>
-
-
