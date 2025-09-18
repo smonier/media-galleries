@@ -13,7 +13,10 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <c:set var="image" value="${currentNode.properties['videoPoster'].node}"/>
-<template:module path="${image.url}" editable="false" view="hidden.contentURL" var="imageUrl"/>
+
+<c:if test="${! empty image}">
+    <template:module path='${image.url}' editable='false' view='hidden.contentURL' var="imageUrl"/>
+</c:if>
 
 <c:set var="caption" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="itemWidth" value="${currentNode.parent.properties['itemWidth'].string}"/>
