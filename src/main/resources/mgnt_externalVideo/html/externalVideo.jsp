@@ -14,9 +14,10 @@
 
 
 <c:set var="image" value="${currentNode.properties['videoPoster'].node}"/>
-<template:module path='${image.path}' editable='false' view='hidden.contentURL' var="imageUrl"/>
-<template:module path='${image.path}' editable='false' view='hidden.imageSize' var="imageSize"/>
-
+<c:if test="${! empty image}">
+    <template:module path='${image.path}' editable='false' view='hidden.contentURL' var="imageUrl"/>
+    <template:module path='${image.path}' editable='false' view='hidden.imageSize' var="imageSize"/>
+</c:if>
 <c:set var="caption" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="itemWidth" value="${currentNode.parent.properties['itemWidth'].string}"/>
 <c:set var="videoID" value="${currentNode.properties['videoId'].string}"/>
